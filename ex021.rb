@@ -1,10 +1,18 @@
 # validandos dados
-puts "Razao da PA:"
+print "Razao da PA:"
 razao = gets.chomp.to_i
 
 print "Valor inicial: "
 inicial = gets.chomp.to_i
 
-for i in 0..10
-  
+def gerar_pa(inicial, razao)
+  numeros = Array.new()
+  i = 0
+  10.times do
+    numeros << (inicial + i*razao)
+    i+=1
+  end
+  numeros
 end
+
+p gerar_pa(inicial, razao)
