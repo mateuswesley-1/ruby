@@ -1,8 +1,3 @@
-puts "Entre com a razão da PA"
-razao = gets.chomp.to_i
-
-puts "Entre com o valor inicio: "
-inicio = gets.chomp.to_i
 
 def gerar_pa_for(inicio, razao)
   numeros = []
@@ -45,17 +40,34 @@ def gerar_pa_loop(inicio, razao)
   numeros
 end
 
-def gerar_pa_each(inicio, razao)
+def gerar_pa_each(inicio, razao, num)
   numeros = []
-  (0...10).each do
+  (0...num).each do
     |i|
     numeros << (inicio + i*razao)
   end
   numeros
 end
 
-p gerar_pa_for(inicio, razao)
-p gerar_pa_while(inicio, razao)
-p gerar_pa_until(inicio, razao)
-p gerar_pa_loop(inicio, razao)
-p gerar_pa_each(inicio, razao)
+def imprimir(inicio, razao, num)
+  while true
+    array_nums = gerar_pa_each(inicio, razao, num)
+    p array_nums.join(' --> ')
+    puts "Quantos numeros a mais voce quer mostrar?"
+    num = gets.chomp.to_i
+    if num==0
+      break
+    else
+      inicio = array_nums[-1]+razao
+      next
+    end
+  end
+end
+
+puts "Entre com a razão da PA"
+razao = gets.chomp.to_i
+
+puts "Entre com o valor inicio: "
+inicio = gets.chomp.to_i
+
+imprimir(inicio, razao, 10)
