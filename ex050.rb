@@ -1,5 +1,6 @@
 class MyCar
-
+  attr_accessor :color
+  attr_reader :year, :model
   def initialize(year, color, model)
     @year = year
     @color = color
