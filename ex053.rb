@@ -1,5 +1,4 @@
 class Cinema
-
   def initialize(name, location)
     @name = name
     @location = location

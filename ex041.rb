@@ -26,7 +26,6 @@ def separar_lista(lista)
   numeros[:impar] = separar_impar(lista)
   numeros[:par] = separar_par(lista)
   numeros
-  end
 end
 
 def separar_impar(lista)
