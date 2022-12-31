@@ -27,21 +27,17 @@ require 'google/apis/civicinfo_v2'
 
 template = ERB.new File.read('form_letter.erb')
 
-def get_civic_info()
-  civic_info = Google::Apis::CivicinfoV2::CivicInfoService.new
-  civic_info.key = 'AIzaSyClRzDqDh5MsXwnCWi0kOiiBivP6JsSyBw'
-  civic_info
-end
 
 def legislators_by_zipcode(zip)
-  civic_info = get_civic_info
+  civic_info = Google::Apis::CivicinfoV2::CivicInfoService.new
+  civic_info.key = 'AIzaSyClRzDqDh5MsXwnCWi0kOiiBivP6JsSyBw'
 
   begin
     civic_info.representative_info_by_address(
       address: zip,
       levels: 'country',
-      roles: ['legislatorUpperBody', 'legislatorLowerBody'].officials
-    )
+      roles: ['legislatorUpperBody', 'legislatorLowerBody']
+    ).officials
 
   rescue
     'You can find your representatives by visiting www.commoncause.org/take-action/find-elected-officials'
@@ -50,6 +46,17 @@ end
 
 def clean_zip(zip)
   zip.to_s.rjust(5, '0')[0..4]
+end
+
+def clean_phone(phone)
+  phone = phone.to_s.scan(/\d+/).join
+  if phone.length == 11 && phone.to_s[0] == '1'
+    phone[1..]
+  elsif phone.length == 10
+    phone
+  else
+    'The number is invalid'
+  end
 end
 
 def save_thank_you_letter(id, form_letter)
@@ -62,6 +69,8 @@ def save_thank_you_letter(id, form_letter)
     file.puts form_letter
   end
 end
+
+# dados do participantes do evento em CSV
 contents = CSV.open(
   'event_attendees.csv',
   headers: true,
@@ -69,12 +78,17 @@ contents = CSV.open(
 )
 
 contents.each do |row|
+  # for each person get the data
   id = row[0]
   name = row[:first_name]
   zip = clean_zip(row[:zipcode])
+  phone = clean_phone(row[:homephone])
+  puts "#{id} #{name} #{zip} #{phone}"
+  # use the data from csv to search for person in API
   legislators = legislators_by_zipcode(zip)
 
   form_letter = template.result(binding)
-
+  puts form_letter
   save_thank_you_letter(id, form_letter)
+
 end
