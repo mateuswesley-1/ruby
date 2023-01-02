@@ -131,8 +131,8 @@ day_freq = counting_values(day_array)
 
 # getting best hour for ad publicity
 best_hour = highest_value_hash hour_freq
-puts "The time with the highest number of records is between #{best_hour}:00 and #{best_hour}:59"
+puts "Most active hour is between #{best_hour}:00 and #{best_hour}:59"
 
 # getting day with more registers
 best_day = highest_value_hash day_freq
-puts "The day with the highest number of records is #{best_day}"
+puts "Most active day: #{best_day.upcase}"
