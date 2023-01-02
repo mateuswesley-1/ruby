@@ -1,19 +1,10 @@
-class Cinema
-  def initialize(name, location)
-    @name = name
-    @location = location
-    @movies = []
+def rot13(secret_messages)
+  secret_messages.map do |string|
+    string.split('').each_with_index do |letter, index|
+      string[index] = ('a'.ord+((letter.ord - 'a'.ord + 13)%26)).chr
+    end
   end
-
-  def prints_jose
-    jose+12
-  end
-
 end
 
-cineminha = Cinema.new("mateus", "onde vc kiser")
-p cineminha.prints_jose
-
-'mateus'
-
+p rot13 ['aba', 'eba']
 
