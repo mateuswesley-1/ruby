@@ -76,8 +76,5 @@ class Hangman
   end
 end
 
-mateus = Hangman.new
-p mateus
-mateus.game
 
 
