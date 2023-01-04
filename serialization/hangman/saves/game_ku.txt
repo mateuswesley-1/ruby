@@ -1,0 +1,1 @@
+{"@secret_word":"provisions","@draw":["_","_","_","_","_","s","_","_","_","s"],"@tried_letters":["a","b","c","e","s","d"],"@wrong_tries":5,"@user":"ku","@game_status":true,"@letter":"save","@winner":false}
