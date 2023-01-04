@@ -1,1 +1,0 @@
-{"@secret_word":"saying","@draw":["_","a","_","_","_","_"],"@tried_letters":["a","b","c","e"],"@wrong_tries":3,"@user":"kakitones","@game_status":true,"@letter":"save","@winner":false}

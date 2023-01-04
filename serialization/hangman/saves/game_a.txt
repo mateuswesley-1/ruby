@@ -1,1 +1,0 @@
-{"@secret_word":"smallest","@draw":["_","_","_","_","_","e","_","_"],"@tried_letters":["b","c","e","d"],"@wrong_tries":3,"@user":"a","@game_status":true,"@letter":"save","@winner":false}
