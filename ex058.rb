@@ -16,7 +16,7 @@ class Sarray
   def each
     i = 0
     for i in 0...@values.length
-      yield(@values[i])
+      puts yield(@values[i])
     end
   end
 
@@ -24,5 +24,5 @@ class Sarray
 end
 
 array = Sarray.new(1, 2, 3, 10, 11, 54).values
-array.each {|value| puts value*2}
+array.each {|value| value*2}
 
