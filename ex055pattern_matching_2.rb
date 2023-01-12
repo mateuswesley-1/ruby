@@ -167,8 +167,7 @@ end
 
 #as pattern and hash match
 case {a: 'ant', b: 'ball'}
-  in a: => hash
-    p a, hash
+in {a: 'ant', b: ball} => hash
 end
 
 
