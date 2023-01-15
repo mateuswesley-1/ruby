@@ -14,7 +14,6 @@ class Sarray
   # para cada valor de @values
   # para o metodo e executa o bloco dado como argumento do metodo each
   def each
-    i = 0
     for i in 0...@values.length
       puts yield(@values[i])
     end

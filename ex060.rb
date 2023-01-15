@@ -1,5 +1,9 @@
-a_proc = Proc.new {|val| puts val}
+# capturing block
+def call_block
+  yield
+end
 
 
-array = *1..10
-array.each |val| a_proc.call
+my_proc = Proc.new { puts "vtnc trankilo" }
+
+call_block(&my_proc)
