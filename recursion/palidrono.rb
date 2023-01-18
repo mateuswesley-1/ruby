@@ -1,0 +1,3 @@
+def palidrono(string)
+  
+end
